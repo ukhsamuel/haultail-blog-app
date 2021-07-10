@@ -1,0 +1,33 @@
+<GridLayout>
+    <ActionBar>
+        <StackLayout orientation="horizontal" padding="4">
+            <image [src]="logo" width="32" height="32"
+                verticalAlignment="center"></image>
+            <label text="Haultail News" fontSize="24"
+                verticalAlignment="center"></label>
+        </StackLayout>
+    </ActionBar>
+    <ActivityIndicator [busy]="loadingPosts">
+    </ActivityIndicator>
+    <ListView [items]="posts">
+        <ng-template let-item="item">
+            <FlexboxLayout flexDirection="row" class="blog-item"
+                [nsRouterLink]="['/post']" (tap)="onPostTap(item)">
+                <StackLayout class="featured-img-section" width="40%">
+                    <Image decodeWidth="400" decodeHeight="400"
+                        loadMode="async" stretch="aspectFill" height=" 140"
+                        width="100" class="featured-img"
+                        [src]="item.post_thumbnail">
+                    </Image>
+                </StackLayout>
+                <StackLayout width="60%">
+                    <Label textWrap="true" [text]="item.post_date | date">
+                    </Label>
+                    <Label fontWeight="bold" class="post-title"
+                        textWrap="true" [text]="item.post_title">
+                    </Label>
+                </StackLayout>
+            </FlexboxLayout>
+        </ng-template>
+    </ListView>
+</GridLayout>

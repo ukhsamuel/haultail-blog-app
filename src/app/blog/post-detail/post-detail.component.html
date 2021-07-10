@@ -1,0 +1,17 @@
+<FlexboxLayout flexDirection="column" padding="4">
+    <ActionBar title="Latest News">
+        <NavigationButton text="Go back" android.systemIcon="ic_menu_back"
+            (tap)="goBack()"></NavigationButton>
+    </ActionBar>
+    <StackLayout>
+        <Image height="400" decodeWidth="400" decodeHeight="400" loadMode="async"
+            stretch="aspectFill" class="featured-img" [src]="post.post_image">
+        </Image>
+    </StackLayout>
+    <StackLayout padding="30">
+        <Label [text]="post.post_date | date"></Label>
+        <Label fontSize="22" textWrap="true" [text]="post.post_title" fontWeight="bold">
+        </Label>
+        <HtmlView [html]="post.post_content"></HtmlView>
+    </StackLayout>
+</FlexboxLayout>

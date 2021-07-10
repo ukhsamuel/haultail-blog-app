@@ -1,0 +1,11 @@
+
+.post-title{
+    font-size: 18
+}
+
+.blog-item{
+    border-color: #cccccc;
+    margin-bottom: 30;
+    border-width: 0 0 1 0;
+    height: 140;
+}
